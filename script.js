@@ -8,6 +8,7 @@ function entrarNaSala(){
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nomeUsuario);
     promise.then(buscarMsg);
     promise.catch(alertaErro);
+    buscarMsg();
 }
 
 function buscarMsg(){
@@ -27,7 +28,7 @@ function renderizaMsg(){
     for (let i = 0; i < mensagem.length; i++) {
         ulMsg.innerHTML += `
         <li class="msg">
-                <span>(09:22:28) João para Todos: Bom dia</span>
+                <span>${mensagem[i].time}${mensagem[i].from}${mensagem[i].to}</span>
             </li>`
     }
 }
