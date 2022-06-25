@@ -11,12 +11,7 @@ function entrarNaSala(){
     buscarMsg();
 }
 
-function mantemConectado (){
-    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nomeUsuario);
-    promise.then(buscarMsg);
-}
-
-setInterval(mantemConectado, 5000);
+setInterval(buscarMsg, 3000);
 
 function buscarMsg(){
     const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
