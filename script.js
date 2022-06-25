@@ -1,10 +1,13 @@
 let mensagem;
 let nome;
+let meuNome;
+
+setInterval(buscarMsg, 3000);
 
 function entrarNaSala(){
-    nome = prompt('Olá! Qual o seu nome?');
+    meuNome = prompt('Olá! Qual o seu nome?');
     const nomeUsuario = {
-        name: nome
+        name: meuNome
     };
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", nomeUsuario);
     promise.then(buscaUsuario);
@@ -19,24 +22,28 @@ function buscaUsuario(){
 
 function pegaUsuario(resposta){
     nome = resposta.data;
+    console.log(nome);
 }
 
 function enviarMsg(){
+    
     let msgEscrita = document.querySelector('.aEnviar').value;
-    let novaMsg = {
-        from: nome,
-        to:'todos',
-        text: msgEscrita,
-        type:'message'
-    }
+    let tipo = 'message';
+    let destinatario = 'todos';
 
+    let novaMsg = {
+        from: meuNome,
+        to: destinatario,
+        text: msgEscrita,
+        type: tipo
+    }
+    console.log('novaMsg');
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', novaMsg);
-    promise.then(renderizaMsg);
+    promise.then(buscarMsg);
+    msgEscrita.innerHTML = '';
     alert('oi')
 }
 
-
-setInterval(buscarMsg, 3000);
 
 function buscarMsg(){
     const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
@@ -77,18 +84,14 @@ function renderizaMsg(){
         </li>`
         }  
     }
-    scrollMsg();
-        
+    scrollMsg();        
 }
 
-
 function alertaErro(error){
-    // if (error.response.status === 400){
-    //     alert('Este nome já está sendo utilizado');
-    //     entrarNaSala();
-    // }
-
-    alert('deu erro')
+    if (error.response.status === 400){
+        alert('Este nome já está sendo utilizado');
+        entrarNaSala();
+    }
 }
 
 entrarNaSala();

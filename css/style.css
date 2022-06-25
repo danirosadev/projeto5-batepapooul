@@ -74,20 +74,25 @@ span {
     box-shadow: 0  -4px 6px rgba(0, 0, 0, .3);
 }
 
-textarea {
-    width: 370px;
+input {
+    width: 375px;
     height: 75px;
     border: none;
-    padding: 25px;
     position: absolute;
+    text-align: start;
+}
+
+input:focus {
+    border: none;
 }
 
 ::placeholder {
     font-size: 18px;
     font-style: italic;
     color: black;
+    margin-bottom: 20px;
 }
-
+                            
 .digitar-msg > ion-icon {
     position: relative;
     font-size: 30px;
