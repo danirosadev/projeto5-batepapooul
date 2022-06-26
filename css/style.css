@@ -16,7 +16,7 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 200;
+    
 }
 
 .logo {
@@ -104,4 +104,40 @@ input {
     position: relative;
     font-size: 30px;
     margin: 25px 25px 25px 320px;
+}
+
+.oculto {
+    display: none;
+}
+
+.menu-lateral {
+    width: 117px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.menu {
+    width: 259px;
+    height: 667px;
+    background-color: #ffffff;
+    font-size: 16px;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 117px;
+}
+
+.menu ion-icon {
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.menu-lateral h2 {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin: 25px;
 }

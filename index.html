@@ -16,7 +16,7 @@
             <img src="./img/logo.png" alt="logo" />
         </div>
         <div class="icone">
-            <ion-icon name="people"></ion-icon>
+            <ion-icon onclick="mostrarMenu();" name="people"></ion-icon>
         </div>
     </div>
     <div class="chat">
@@ -27,6 +27,42 @@
     <div class="digitar-msg">
         <input class="aEnviar" placeholder="Escreva aqui..." />
         <ion-icon class="botao" onclick="enviarMsg()" name="paper-plane-outline"></ion-icon>
+    </div>
+
+    <div onclick="esconderMenu();" class="menu-lateral oculto">
+        <div class="menu">
+            <div>
+                <h2>Escolha um contato para enviar a mensagem:</h2>
+                <ul>
+                    <li>
+                        <ion-icon name="people"></ion-icon>
+                        <p>Todos</p>
+                    </li>
+                    <li>
+                        <ion-icon name="person-circle"></ion-icon>
+                        <p>João</p>
+                    </li>
+                    <li>
+                        <ion-icon name="person-circle"></ion-icon>
+                        <p>Maria</p>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2>Escolha a visibilidade:</h2>
+                <ul>
+                    <li>
+                        <ion-icon name="lock-open"></ion-icon>
+                        <p>Público</p>
+                    </li>
+                    <li>
+                        <ion-icon name="lock-open"></ion-icon>
+                        <p>Reservadamente</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

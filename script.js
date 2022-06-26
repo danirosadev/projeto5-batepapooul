@@ -105,4 +105,12 @@ function alertaErro(error){
     }
 }
 
+function mostrarMenu(){
+    document.querySelector('.menu-lateral').classList.remove('oculto')
+}
+
+function esconderMenu(){
+    document.querySelector('.menu-lateral').classList.add('oculto')
+}
+
 entrarNaSala();
