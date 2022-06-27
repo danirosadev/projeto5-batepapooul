@@ -128,6 +128,7 @@ input {
     position: fixed;
     top: 0;
     left: 117px;
+    overflow-y: scroll;
 }
 
 .menu ion-icon {

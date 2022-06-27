@@ -6,6 +6,7 @@ let destinatario;
 
 setInterval(buscarMsg, 3000);
 setInterval(buscaUsuario, 5000);
+setInterval(renderizarParticipantes, 10000);
 
 function entrarNaSala(){
     meuNome = prompt('Olá! Qual o seu nome?');
@@ -106,7 +107,23 @@ function alertaErro(error){
 }
 
 function mostrarMenu(){
-    document.querySelector('.menu-lateral').classList.remove('oculto')
+    document.querySelector('.menu-lateral').classList.remove('oculto');
+    renderizarParticipantes();
+}
+
+function renderizarParticipantes (){
+    const ulParticipantes = document.querySelector('.participantes');
+    ulParticipantes.innerHTML = `<li>
+        <ion-icon name="people"></ion-icon>
+        <p>Todos</p>
+        </li>`
+
+    for (let i = 0; i < nome.length; i++) {
+    ulParticipantes.innerHTML += `<li>
+        <ion-icon name="person-circle"></ion-icon>
+        <p>${nome[i].name}</p>
+        </li>` 
+    }
 }
 
 function esconderMenu(){
